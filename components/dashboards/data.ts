@@ -16,7 +16,7 @@ export const dashboardRoutes: DashboardRouteConfig[] = [
   {
     label: "City Risk Map",
     icon: MapPinned,
-    href: "/dashboard/city-risk-map-command-center",
+    href: "/dashboard/city-risk-map",
     title: "City Risk Map",
     subtitle: "Live spatial risk monitoring across stations, violations, and field-unit availability.",
     searchPlaceholder: "Search zones, active vehicles, or station IDs...",
@@ -32,7 +32,7 @@ export const dashboardRoutes: DashboardRouteConfig[] = [
   {
     label: "Prediction Center",
     icon: Radar,
-    href: "/dashboard/prediction-center-forecasts",
+    href: "/dashboard/prediction-center",
     title: "Predictive Analytics Engine",
     subtitle: "Generating 7-day algorithmic forecasts based on historical spatial data and live sensor feeds.",
     searchPlaceholder: "Query location, vehicle plate, or zone ID...",
@@ -40,7 +40,7 @@ export const dashboardRoutes: DashboardRouteConfig[] = [
   {
     label: "Analytics",
     icon: LayoutDashboard,
-    href: "/dashboard/analytics-executive-summary",
+    href: "/dashboard/analytics",
     title: "Analytics & Executive Summary",
     subtitle: "Historical trends, geographic distribution, and operational KPIs for the current shift.",
     searchPlaceholder: "Search parameters, zones, or IDs...",

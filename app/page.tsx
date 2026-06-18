@@ -1,9 +1,5 @@
-import React from 'react'
+import { redirect } from 'next/navigation';
 
-const App = () => {
-  return (
-    <div>App</div>
-  )
+export default function App() {
+  redirect('/dashboard/resource-allocation');
 }
-
-export default App
