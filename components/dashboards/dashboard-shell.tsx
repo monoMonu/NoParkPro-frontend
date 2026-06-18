@@ -1,26 +1,23 @@
+"use client";
+
 import { Bell, Map, Siren, UserCircle2 } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { navItems, sidebarFooterItems, topbarIcons } from "@/data/dashboard";
+import { getDashboardRoute, navItems, sidebarFooterItems, topbarIcons } from "./data";
 
 type ShellProps = {
-  title: string;
-  subtitle: string;
   children: ReactNode;
-  activeNav?: string;
-  searchPlaceholder?: string;
 };
 
-export function DashboardShell({
-  title,
-  subtitle,
-  children,
-  activeNav = "Resource Allocation",
-  searchPlaceholder = "Search parameters, zones, or IDs...",
-}: ShellProps) {
+export function DashboardShell({ children }: ShellProps) {
+  const pathname = usePathname();
+  const activeRoute = getDashboardRoute(pathname);
+
   return (
     <div className="min-h-screen bg-background text-on-surface">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-60 shrink-0 border-r border-outline-variant bg-surface-container md:flex md:flex-col">
@@ -30,7 +27,7 @@ export function DashboardShell({
               <Map className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-lg font-semibold leading-none text-primary">Command Center</div>
+              <div className="text-base font-semibold leading-none text-primary">Command Center</div>
               <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-on-surface-variant">Vigilance Alpha-1</div>
             </div>
           </div>
@@ -38,19 +35,20 @@ export function DashboardShell({
 
         <nav className="flex-1 space-y-1 px-2 py-2">
           {navItems.map((item) => (
-            <button
-              key={item.label}
-              type="button"
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={item.href === activeRoute.href ? "page" : undefined}
               className={cn(
                 "flex w-full items-center gap-3 border-r-2 px-4 py-3 text-left transition-colors",
-                item.label === activeNav
+                item.href === activeRoute.href
                   ? "border-primary bg-primary-container/10 text-primary"
                   : "border-transparent text-on-surface-variant hover:bg-surface-variant/60 hover:text-on-surface",
               )}
             >
-              <item.icon className={cn("h-5 w-5", item.label === activeNav && "fill-current")} />
-              <span className={cn("text-sm", item.label === activeNav && "font-medium")}>{item.label}</span>
-            </button>
+              <item.icon className={cn("h-5 w-5")} />
+              <span className={cn("text-sm", item.href === activeRoute.href && "font-medium")}>{item.label}</span>
+            </Link>
           ))}
         </nav>
 
@@ -79,13 +77,13 @@ export function DashboardShell({
           <div className="flex w-full items-center justify-between gap-4">
             <div className="flex flex-1 items-center gap-3">
               <div className="md:hidden">
-                <div className="text-lg font-semibold text-primary">{title}</div>
+                <div className="text-base font-semibold text-primary">{activeRoute.title}</div>
                 <div className="text-[11px] uppercase tracking-[0.22em] text-on-surface-variant">Vigilance Alpha-1</div>
               </div>
               <div className="hidden max-w-105 flex-1 md:block">
                 <div className="relative">
                   <Bell className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-on-surface-variant opacity-0" />
-                  <Input className="h-10 pl-3" placeholder={searchPlaceholder} />
+                  <Input className="h-10 pl-3" placeholder={activeRoute.searchPlaceholder} />
                 </div>
               </div>
             </div>
@@ -110,8 +108,8 @@ export function DashboardShell({
         <main className="flex-1 overflow-y-auto px-4 py-6 md:px-6">
           <div className="mx-auto w-full max-w-360">
             <div className="mb-6">
-              <h1 className="text-3xl font-semibold tracking-tight text-on-surface md:text-[32px] md:leading-10">{title}</h1>
-              <p className="mt-2 max-w-3xl text-sm text-on-surface-variant md:text-base">{subtitle}</p>
+              <h1 className="text-xl font-semibold tracking-tight text-on-surface md:text-2xl md:leading-8">{activeRoute.title}</h1>
+              <p className="mt-2 max-w-3xl text-sm text-on-surface-variant md:text-base">{activeRoute.subtitle}</p>
             </div>
             {children}
           </div>

@@ -1,4 +1,3 @@
-import { DashboardShell } from "@/components/dashboard-shell";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ConfidenceChart } from "./ConfidenceChart";
@@ -9,12 +8,7 @@ import { toolbarActions } from "./data";
 
 export function PredictionCenterDashboard() {
   return (
-    <DashboardShell
-      activeNav="Prediction Center"
-      title="Predictive Analytics Engine"
-      subtitle="Generating 7-day algorithmic forecasts based on historical spatial data and live sensor feeds."
-      searchPlaceholder="Query location, vehicle plate, or zone ID..."
-    >
+    <>
       <div className="mb-6 flex flex-wrap justify-end gap-2">
         {toolbarActions.map((action) => (
           <Button key={action.label} variant={action.variant} className="min-w-36">
@@ -45,6 +39,6 @@ export function PredictionCenterDashboard() {
       <section className="mt-4">
         <ForecastLedger />
       </section>
-    </DashboardShell>
+    </>
   );
 }

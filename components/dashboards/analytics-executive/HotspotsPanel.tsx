@@ -1,26 +1,36 @@
-import { Flame } from "lucide-react";
+import { Flame, ShieldAlert } from "lucide-react";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { hotspots } from "./data";
 
 export function HotspotsPanel() {
   return (
-    <Card className="h-full">
+    <Card>
       <CardHeader>
-        <div className="flex items-center gap-2">
-          <Flame className="h-5 w-5 text-error" />
+        <div>
           <CardTitle>Recurring Hotspots</CardTitle>
+          <CardDescription>Clusters sorted by current violation volume.</CardDescription>
         </div>
+        <ShieldAlert className="h-5 w-5 text-error" />
       </CardHeader>
-      <CardContent className="space-y-6 pt-8">
-        {hotspots.map((item) => (
-          <div key={item.label} className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span className="text-on-surface">{item.label}</span>
-              <span className="font-mono text-on-surface">{item.value}</span>
+      <CardContent className="space-y-4">
+        {hotspots.map((hotspot) => (
+          <div key={hotspot.label} className="space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-on-surface">{hotspot.label}</span>
+              <span className="font-medium text-on-surface-variant">{hotspot.value}</span>
             </div>
             <div className="h-2 rounded-full bg-surface-container-high">
-              <div className={`${item.color} h-2 rounded-full`} style={{ width: `${Math.min(100, item.value / 2.45)}%` }} />
+              <div
+                className={
+                  hotspot.tone === "critical"
+                    ? "h-2 rounded-full bg-error"
+                    : hotspot.tone === "default"
+                      ? "h-2 rounded-full bg-primary"
+                      : "h-2 rounded-full bg-secondary"
+                }
+                style={{ width: `${Math.min(100, hotspot.value / 2.5)}%` }}
+              />
             </div>
           </div>
         ))}

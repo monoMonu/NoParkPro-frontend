@@ -7,7 +7,7 @@ import { mapPins, riskMix } from "./data";
 
 export function CityMapCanvas() {
   return (
-    <div className="relative min-h-[740px] overflow-hidden border border-outline-variant bg-surface-container-low">
+    <div className="relative min-h-185 overflow-hidden border border-outline-variant bg-surface-container-low">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(115,118,134,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(115,118,134,0.18)_1px,transparent_1px)] bg-size-[50px_50px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_43%_35%,rgba(186,26,26,0.16),transparent_13%),radial-gradient(circle_at_64%_64%,rgba(80,95,118,0.14),transparent_16%),radial-gradient(circle_at_51%_83%,rgba(0,74,198,0.11),transparent_14%)]" />
       {mapPins.map((pin) => (
@@ -18,11 +18,11 @@ export function CityMapCanvas() {
 
       <Card className="absolute bottom-8 left-6 w-[min(440px,calc(100%-48px))] p-5 shadow-[0_18px_50px_rgba(15,23,42,0.12)]">
         <div className="mb-4 flex items-center justify-between gap-4 border-b border-outline-variant pb-3">
-          <div className="flex items-center gap-2 text-lg font-semibold">
+          <div className="flex items-center gap-2 text-base font-semibold">
             <span className="h-2.5 w-2.5 rounded-full bg-error" />
             Financial District Alpha
           </div>
-          <div className="border border-error/30 bg-error-container px-4 py-1 font-mono text-sm text-error">98% Risk</div>
+          <div className="border border-error/30 bg-error-container px-4 py-1 font-mono text-xs text-error">98% Risk</div>
         </div>
         <div className="space-y-3">
           {riskMix.map((risk) => (

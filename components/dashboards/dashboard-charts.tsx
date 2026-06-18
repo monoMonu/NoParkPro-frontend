@@ -13,7 +13,7 @@ import {
 } from "recharts";
 
 import { cn } from "@/lib/utils";
-import { trendData, violationBars } from "@/data/dashboard";
+import { trendData, violationBars } from "./data";
 
 type TrendChartProps = {
   compact?: boolean;
@@ -21,7 +21,7 @@ type TrendChartProps = {
 
 export function TrendChart({ compact = false }: TrendChartProps) {
   return (
-    <div className={cn("h-[260px] w-full", compact && "h-[220px]") }>
+    <div className={cn("h-[260px] min-h-0 min-w-0 w-full", compact && "h-[220px]")}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={trendData} margin={{ top: 10, right: 6, left: -12, bottom: 0 }}>
           <defs>
@@ -58,7 +58,7 @@ export function TrendChart({ compact = false }: TrendChartProps) {
 
 export function ViolationsChart() {
   return (
-    <div className="h-40 w-full">
+    <div className="h-40 min-h-0 min-w-0 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={violationBars} margin={{ top: 8, right: 0, left: -12, bottom: 0 }}>
           <CartesianGrid stroke="var(--outline-variant)" strokeOpacity={0.35} vertical={false} />

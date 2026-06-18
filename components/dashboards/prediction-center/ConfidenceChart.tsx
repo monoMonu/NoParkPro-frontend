@@ -6,7 +6,7 @@ import { confidenceData } from "./data";
 
 export function ConfidenceChart() {
   return (
-    <div className="h-[310px] w-full">
+    <div className="h-[310px] min-h-0 min-w-0 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={confidenceData} margin={{ top: 10, right: 4, left: -18, bottom: 0 }}>
           <CartesianGrid stroke="var(--outline-variant)" strokeOpacity={0.55} vertical={false} />
