@@ -208,9 +208,9 @@ export function AnalyticsExecutiveDashboard({
           ))}
         </section>
 
-        <section>
-          <MapPanel riskMap={riskMap} />
-        </section>
+      <section className="mt-4">
+        <MapPanel riskMap={riskMap} />
+      </section>
 
         <section className="mt-4 grid gap-4 lg:grid-cols-2">
           <HotspotsPanel hotspots={hotspots} />

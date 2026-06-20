@@ -34,7 +34,7 @@ export function SummaryCharts({
       <Card className="flex flex-col">
         <CardHeader>
           <div>
-            <CardTitle>7-Day Trend</CardTitle>
+            <CardTitle>Monthly Trend</CardTitle>
             <CardDescription>Alpha and beta model projection overlap.</CardDescription>
           </div>
           <div className="text-xs font-medium text-on-surface-variant">~{trendDelta.toFixed(1)}%</div>
