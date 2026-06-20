@@ -35,7 +35,7 @@ export function SummaryCharts({
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="flex flex-col">
         <CardHeader>
           <div>
             <CardTitle>7-Day Trend</CardTitle>
@@ -43,12 +43,12 @@ export function SummaryCharts({
           </div>
           <div className="text-xs font-medium text-on-surface-variant">~{trendDelta.toFixed(1)}%</div>
         </CardHeader>
-        <CardContent className="min-w-0">
+        <CardContent className="min-w-0 flex-1">
           <TrendChart data={dailySeries.map((item) => ({ day: item.label, alpha: item.value ?? item.alpha ?? 0, beta: item.beta ?? item.value ?? 0 }))} />
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="flex flex-col">
         <CardHeader>
           <div>
             <CardTitle>Violation Breakdown</CardTitle>

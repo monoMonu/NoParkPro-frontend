@@ -18,16 +18,16 @@ function StatCard({
   icon: LucideIcon;
 }) {
   return (
-    <Card className={cn("border-t-4 bg-surface/95", tone)}>
+    <Card className={cn("border-t-4 bg-surface/95 flex flex-col justify-between", tone)}>
       <CardHeader className="border-b-0 pb-1">
         <div className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">{label}</div>
         <Icon className="h-5 w-5 text-on-surface-variant" />
       </CardHeader>
-      <CardContent className="flex items-end gap-3 pt-2">
-        <div className={cn("font-mono text-5xl font-semibold", label.includes("High") ? "text-error" : "text-on-surface")}>
+      <CardContent className="flex flex-col py-0">
+        <div className={cn("font-mono text-4xl font-semibold", label.includes("High") ? "text-error" : "text-on-surface")}>
           {value}
         </div>
-        <div className="pb-2 font-mono text-sm text-on-surface-variant">{delta}</div>
+        <div className="pb-1 font-mono text-sm text-on-surface-variant text-right">{delta}</div>
       </CardContent>
     </Card>
   );

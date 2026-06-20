@@ -23,7 +23,7 @@ export function KPICard({ label, value, detail, subdetail, tone, icon: Icon }: K
         </div>
         <Icon className={cn("h-5 w-5", critical ? "text-error" : "text-primary")} />
       </CardHeader>
-      <CardContent className="flex min-h-32 items-end justify-between gap-4 pt-8">
+      <CardContent className="flex min-h-0 items-end justify-between gap-4 pt-6">
         <div className={cn("text-5xl font-bold tracking-tight", critical ? "text-error" : "text-on-surface")}>
           {value}
         </div>
