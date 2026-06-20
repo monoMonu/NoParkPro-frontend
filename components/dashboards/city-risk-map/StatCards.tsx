@@ -66,13 +66,6 @@ export function StatCards({
       tone: "border-t-error",
       icon: AlertTriangle,
     },
-    {
-      label: "Available Units",
-      value: formatNumber(resourcesSummary.availableUnits),
-      delta: `/ ${formatNumber(resourcesSummary.activeUnits)} Active`,
-      tone: "border-t-tertiary",
-      icon: Bus,
-    },
   ];
 
   return (
