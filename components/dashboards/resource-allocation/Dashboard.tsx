@@ -86,18 +86,20 @@ export default function ResourceAllocation({
   };
 
   const handleRunSimulation = async () => {
-    setLoading(true);
+    // setLoading(true);
     setError(null);
     try {
       // Fetch plan and summary from backend passing the parameters.
       // (Backend does not currently support custom allocation simulation, but we still trigger the fetch).
-      const [resourcesRes, planRes] = await Promise.all([
-        getResourcesSummary({ window: windowVal as any }),
-        getCurrentAllocationPlan({ planningWindow: windowVal }),
-      ]);
+      // const [resourcesRes, planRes] = await Promise.all([
+      //   getResourcesSummary({ window: windowVal as any }),
+      //   getCurrentAllocationPlan({ planningWindow: windowVal }),
+      // ]);
 
-      setResourcesSummary(resourcesRes.data);
-      setAllocationPlan(planRes.data);
+      // setResourcesSummary(resourcesRes.data);
+      // setAllocationPlan(planRes.data);
+      // mock new data to show the dashboard
+
     } catch (err: any) {
       console.error(err);
       setError(err.message || "Simulation failed to execute.");
@@ -178,7 +180,7 @@ export default function ResourceAllocation({
           <SummaryStats resourcesSummary={resourcesSummary} />
         </section>
 
-        <section className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.3fr] xl:grid-cols-[340px_minmax(0,1fr)]">
+        <section className="mt-4 grid gap-4 lg:grid-cols-[0.9fr_1.3fr] xl:grid-cols-[380px_minmax(0,1fr)]">
           <SimulationNImpact
             resourcesSummary={resourcesSummary}
             allocationPlan={allocationPlan}

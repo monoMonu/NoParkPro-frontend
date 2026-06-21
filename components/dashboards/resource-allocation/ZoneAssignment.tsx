@@ -44,7 +44,7 @@ const ZoneAssignment = ({ assignments }: { assignments: Assignment[] }) => {
   };
 
   return (
-    <Card className="h-[580px] flex flex-col overflow-hidden">
+    <Card className="h-[600px] flex flex-col overflow-hidden">
       <CardHeader className="flex-shrink-0">
         <div>
           <CardTitle>AI Zone Assignments</CardTitle>

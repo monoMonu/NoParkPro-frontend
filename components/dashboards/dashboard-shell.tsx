@@ -1,6 +1,7 @@
 "use client";
 
-import { Bell, Map, Siren, UserCircle2 } from "lucide-react";
+import { Bell, Siren, UserCircle2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -24,12 +25,12 @@ export function DashboardShell({ children }: ShellProps) {
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-60 shrink-0 border-r border-outline-variant bg-surface-container md:flex md:flex-col">
         <div className="px-4 py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-on-primary shadow-sm">
-              <Map className="h-5 w-5" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-container border border-outline-variant overflow-hidden p-0">
+              <Image src="/logo.png" alt="NoParkPro Logo" width={100} height={100} className="object-contain w-full h-full" />
             </div>
             <div>
-              <div className="text-base font-semibold leading-none text-primary">Command Center</div>
-              <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-on-surface-variant">Vigilance Alpha-1</div>
+              <div className="text-base font-semibold leading-none text-primary">NoParkPro</div>
+              <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-on-surface-variant">Command Center</div>
             </div>
           </div>
         </div>
@@ -77,9 +78,14 @@ export function DashboardShell({ children }: ShellProps) {
         <header className="sticky top-0 z-20 flex h-16 items-center border-b border-outline-variant bg-background/95 px-4 backdrop-blur supports-backdrop-filter:bg-background/90 md:px-6">
           <div className="flex w-full items-center justify-between gap-4">
             <div className="flex flex-1 items-center gap-3">
-              <div className="md:hidden">
-                <div className="text-base font-semibold text-primary">{activeRoute.title}</div>
-                <div className="text-[11px] uppercase tracking-[0.22em] text-on-surface-variant">Vigilance Alpha-1</div>
+              <div className="flex items-center gap-2 md:hidden">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden bg-surface-container border border-outline-variant p-0.5 shadow-sm">
+                  <Image src="/logo.png" alt="NoParkPro Logo" width={24} height={24} className="object-contain" />
+                </div>
+                <div>
+                  <div className="text-sm font-bold leading-tight text-primary">{activeRoute.title}</div>
+                  <div className="text-[9px] uppercase tracking-[0.18em] text-on-surface-variant leading-none">NoParkPro AI</div>
+                </div>
               </div>
               <div className="hidden max-w-105 flex-1 md:block">
                 <div className="relative">

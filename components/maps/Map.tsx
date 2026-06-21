@@ -66,11 +66,11 @@ export const Marker = ({ location, color, anchor = 'center', onClick, isSelected
     el.style.borderRadius = '50%';
     el.style.backgroundColor = color;
     el.style.border = isSelected ? '3px solid #fff' : '2px solid #fff';
-    el.style.boxShadow = isSelected 
-      ? `0 0 15px rgba(0,0,0,0.5), 0 0 0 3px ${color}` 
+    el.style.boxShadow = isSelected
+      ? `0 0 15px rgba(0,0,0,0.5), 0 0 0 3px ${color}`
       : '0 0 10px rgba(0,0,0,0.3)';
     el.style.cursor = 'pointer';
-    el.style.transition = 'all 0.2s ease-in-out';
+    el.style.transition = 'width 0.2s ease-in-out, height 0.2s ease-in-out, border 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out';
 
     const marker = new maplibregl.Marker({
       element: el,
@@ -156,13 +156,13 @@ const Map = ({ locations, viewport, height = '600px', onMarkerClick, selectedLoc
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const initialCenter: [number, number] = viewport 
+    const initialCenter: [number, number] = viewport
       ? [viewport.center.lng, viewport.center.lat]
       : [77.5946, 12.9716];
-    
+
     const initialZoom = viewport ? viewport.zoom : 12;
 
-    if(!MAPTILER_API_KEY) {
+    if (!MAPTILER_API_KEY) {
       console.error("Maptiler api key not available.");
       return;
     }

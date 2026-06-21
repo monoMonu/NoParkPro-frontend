@@ -12,7 +12,8 @@ import {
   TrendingUp,
   MapPin,
   FileText,
-  AlertTriangle
+  AlertTriangle,
+  BotIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -561,7 +562,7 @@ export function AssistantChat() {
         aria-label="Open NoParkPro AI Copilot"
       >
         <div className="relative">
-          <Sparkles className="h-6 w-6 animate-pulse" />
+          <BotIcon className="h-6 w-6 animate-pulse" />
           {hasNewMessage && (
             <span className="absolute -right-1 -top-1 flex h-3.5 w-3.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
@@ -706,7 +707,7 @@ export function AssistantChat() {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about hotspots, deployments, risks, forecasts..."
-              className="flex-1 min-w-0 min-h-[44px] max-h-[120px] w-full resize-none rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-primary focus:outline-none transition-colors overflow-y-auto hide-scrollbar"
+              className="flex-1 min-w-0 min-h-[60px] max-h-[120px] w-full resize-none rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-primary focus:outline-none transition-colors overflow-y-auto hide-scrollbar"
               disabled={isLoading}
             />
             <button
