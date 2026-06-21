@@ -56,10 +56,9 @@ export function FilterBar({
   return (
     <div ref={containerRef} className="mb-6 flex flex-wrap items-center gap-3">
       <div className="mr-2 text-base font-semibold text-primary">NoParkPro</div>
-      <div className="hidden h-8 w-px bg-outline-variant sm:block" />
 
       {/* Time Window Dropdown */}
-      <div className="relative">
+      <div className="relative flex justify-end flex-1">
         <Button
           variant="secondary"
           className="h-9 min-w-32 justify-between gap-2 text-left"

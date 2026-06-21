@@ -26,7 +26,7 @@ function badgeTone(priority: RiskLevel) {
 
 const ZoneAssignment = ({ assignments }: { assignments: Assignment[] }) => {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden overflow-y-scroll">
       <CardHeader>
         <div>
           <CardTitle>AI Zone Assignments</CardTitle>
@@ -68,7 +68,7 @@ const ZoneAssignment = ({ assignments }: { assignments: Assignment[] }) => {
       <CardFooter className="flex items-center justify-between text-sm text-on-surface-variant">
         <span>Showing top 5 zones prioritized by AI</span>
         <button className="inline-flex items-center gap-1 text-primary hover:underline">
-          View All Zones <ArrowRight className="h-4 w-4" />
+          View All Zones
         </button>
       </CardFooter>
     </Card>

@@ -39,11 +39,14 @@ export function HotspotSidebar({ hotspots }: { hotspots: ZoneHotspot[] }) {
                   <span className="mr-2 text-primary">#{item.rank}</span>
                   {item.shortName || item.zoneName}
                 </div>
-                <div className="mt-3 text-on-surface-variant">{item.summary}</div>
+                <div className="mt-3 text-on-surface-variant text-sm">Est. Violations: {item.estimatedViolations}</div>
+                <div className="text-on-surface-variant text-sm">Obs. Violations: {item.violationCount}</div>
               </div>
-              {badge ? <Badge tone={badge === "Critical" ? "critical" : badge === "Elevated" ? "elevated" : "muted"}>{badge}</Badge> : null}
+              <div>
+                {badge ? <Badge tone={badge === "Critical" ? "critical" : badge === "Elevated" ? "elevated" : "muted"}>{badge}</Badge> : null}
+                <div className="mt-6 text-right text-base font-semibold">{item.riskScore}/100</div>
+              </div>
             </div>
-            <div className="mt-2 text-right text-base font-semibold">{item.riskScore}/100</div>
           </div>
         )})}
       </div>

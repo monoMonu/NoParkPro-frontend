@@ -18,7 +18,7 @@ export default async function CityRiskMapCommandCenterPage(props: {
   const violationTypeParam = (searchParams.violationType as string) || "";
 
   const [hotspots, riskMap, violationsSummary, violationsBreakdown, resourcesSummary] = await Promise.all([
-    getZoneHotspots({ window: windowParam as any, stationId: stationIdParam, violationType: violationTypeParam, limit: 4 }),
+    getZoneHotspots({ window: windowParam as any, stationId: stationIdParam, violationType: violationTypeParam, limit: 5 }),
     getRiskMap({ window: windowParam as any, stationId: stationIdParam, violationType: violationTypeParam }),
     getViolationsSummary({ window: windowParam as any, stationId: stationIdParam, violationType: violationTypeParam }),
     getViolationsBreakdown({ window: windowParam as any }),

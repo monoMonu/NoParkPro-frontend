@@ -10,8 +10,8 @@ const ViolationBreakdown = ({ breakdown }: { breakdown: ViolationBreakdownItem[]
       <Card className="flex flex-col">
         <CardHeader>
           <div>
-            <CardTitle>Violation Breakdown</CardTitle>
-            <CardDescription>Category mix for current shift.</CardDescription>
+            <CardTitle>High-Risk Parking Zones</CardTitle>
+            <CardDescription>Ranked by enforcement priority; counts represent observed violations</CardDescription>
           </div>
           <div className="h-5 w-5 rounded-full border border-outline-variant" />
         </CardHeader>

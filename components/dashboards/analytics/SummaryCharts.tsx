@@ -21,8 +21,8 @@ export function SummaryCharts({
       <Card className="flex flex-col">
         <CardHeader>
           <div>
-            <CardTitle>Violations by Hour</CardTitle>
-            <CardDescription>Observed enforcement volume across the day.</CardDescription>
+            <CardTitle>Hourly Traffic Violation Pattern</CardTitle>
+            <CardDescription>Historical distribution of violations used for temporal analysis.</CardDescription>
           </div>
           <Filter className="h-5 w-5 text-on-surface-variant" />
         </CardHeader>
@@ -34,8 +34,8 @@ export function SummaryCharts({
       <Card className="flex flex-col">
         <CardHeader>
           <div>
-            <CardTitle>Monthly Trend</CardTitle>
-            <CardDescription>Alpha and beta model projection overlap.</CardDescription>
+            <CardTitle>Monthly Violation History</CardTitle>
+            <CardDescription>Historical variation in recorded variations across the dataset.</CardDescription>
           </div>
           <div className="text-xs font-medium text-on-surface-variant">~{trendDelta.toFixed(1)}%</div>
         </CardHeader>

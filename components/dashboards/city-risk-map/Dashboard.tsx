@@ -63,7 +63,7 @@ export function CityRiskMapDashboard({
     setError(null);
     try {
       const [hotspotsRes, riskMapRes, summaryRes, resourcesRes] = await Promise.all([
-        getZoneHotspots({ window: w as any, stationId: s, violationType: v, limit: 4 }),
+        getZoneHotspots({ window: w as any, stationId: s, violationType: v, limit: 5 }),
         getRiskMap({ window: w as any, stationId: s, violationType: v }),
         getViolationsSummary({ window: w as any, stationId: s, violationType: v }),
         getResourcesSummary({ window: w as any, stationId: s }),

@@ -69,7 +69,7 @@ export function StatCards({
   ];
 
   return (
-    <section className="grid gap-4 lg:grid-cols-4">
+    <section className="grid gap-4 lg:grid-cols-3">
       {cityStats.map((stat) => (
         <StatCard key={stat.label} {...stat} />
       ))}
